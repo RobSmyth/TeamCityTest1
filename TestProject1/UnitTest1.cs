@@ -1,4 +1,4 @@
-namespace TestProject1
+namespace OrganisationName.ProductName.ComponentName.TestProject1
 {
     public class Tests
     {
