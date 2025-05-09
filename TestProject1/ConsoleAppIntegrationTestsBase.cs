@@ -9,12 +9,12 @@ internal abstract class ConsoleAppIntegrationTestsBase
     [TestCase(100)]
     [TestCase(50)]
     [TestCase(500)]
-    [TestCase(500)]
+    [TestCase(300)]
     [TestCase(7)]
     [TestCase(8)]
     [TestCase(9)]
-    [TestCase(10)]
-    [TestCase(11)]
+    [TestCase(200)]
+    [TestCase(110)]
     [TestCase(12)]
     [TestCase(13)]
     [TestCase(14)]
@@ -28,21 +28,21 @@ internal abstract class ConsoleAppIntegrationTestsBase
     [Timeout(20000)]
     public void DisplaysHelloMessageWhenRun02()
     {
-        RunTest(10000);
+        RunTest(4000);
     }
 
     [Test]
     [Timeout(20000)]
     public void DisplaysHelloMessageWhenRun03()
     {
-        RunTest(10000);
+        RunTest(6000);
     }
 
     [Test]
     [Timeout(20000)]
     public void DisplaysHelloMessageWhenRun04()
     {
-        RunTest(10000);
+        RunTest(5000);
     }
 
     private static void OnErrorDataReceived(string? data, TextWriter errorOut)
