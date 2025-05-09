@@ -19,16 +19,16 @@ internal abstract class ConsoleAppIntegrationTestsBase
     [TestCase(13)]
     [TestCase(14)]
     [Timeout(10000)]
-    public void DisplaysHelloMessageWhenRun(int arbitraryValue)
+    public void DisplaysHelloMessageWhenRun(int runDelayMilliseconds)
     {
-        RunTest();
+        RunTest(runDelayMilliseconds);
     }
 
     [Test]
     [Timeout(10000)]
     public void DisplaysHelloMessageWhenRun02()
     {
-        RunTest();
+        RunTest(100);
     }
 
     private static void OnErrorDataReceived(string? data, TextWriter errorOut)
@@ -41,11 +41,12 @@ internal abstract class ConsoleAppIntegrationTestsBase
         errorOut.WriteLine(data);
     }
 
-    private bool RunApp(StringWriter outWriter, StringWriter? errorWriter)
+    private bool RunApp(StringWriter outWriter, StringWriter? errorWriter, int runDelayMilliseconds)
     {
+        Console.WriteLine($"Run app with {runDelayMilliseconds} ms delay");
         var process = new Process();
         process.StartInfo.FileName = "dotnet";
-        process.StartInfo.Arguments = "ConsoleApp1.dll";
+        process.StartInfo.Arguments = $"ConsoleApp1.dll -- {runDelayMilliseconds}";
         process.StartInfo.CreateNoWindow = true;
         process.StartInfo.UseShellExecute = false;
         process.StartInfo.RedirectStandardOutput = true;
@@ -64,12 +65,12 @@ internal abstract class ConsoleAppIntegrationTestsBase
         return process.WaitForExit(5000);
     }
 
-    private void RunTest()
+    private void RunTest(int runDelayMilliseconds)
     {
         var outWriter = new StringWriter();
         var errorWriter = new StringWriter();
 
-        var finished = RunApp(outWriter, errorWriter);
+        var finished = RunApp(outWriter, errorWriter, runDelayMilliseconds);
         Assert.That(finished, Is.True);
 
         var output = outWriter.ToString();
