@@ -5,11 +5,11 @@ namespace OrganisationName.ProductName.ComponentName.TestProject1;
 internal abstract class ConsoleAppIntegrationTestsBase
 {
     [TestCase(1)]
-    [TestCase(2)]
-    [TestCase(3)]
-    [TestCase(4)]
-    [TestCase(5)]
-    [TestCase(6)]
+    [TestCase(20)]
+    [TestCase(100)]
+    [TestCase(50)]
+    [TestCase(500)]
+    [TestCase(500)]
     [TestCase(7)]
     [TestCase(8)]
     [TestCase(9)]
@@ -25,10 +25,24 @@ internal abstract class ConsoleAppIntegrationTestsBase
     }
 
     [Test]
-    [Timeout(10000)]
+    [Timeout(20000)]
     public void DisplaysHelloMessageWhenRun02()
     {
-        RunTest(100);
+        RunTest(10000);
+    }
+
+    [Test]
+    [Timeout(20000)]
+    public void DisplaysHelloMessageWhenRun03()
+    {
+        RunTest(10000);
+    }
+
+    [Test]
+    [Timeout(20000)]
+    public void DisplaysHelloMessageWhenRun04()
+    {
+        RunTest(10000);
     }
 
     private static void OnErrorDataReceived(string? data, TextWriter errorOut)
@@ -62,7 +76,7 @@ internal abstract class ConsoleAppIntegrationTestsBase
         process.BeginErrorReadLine();
         outWriter.Write(process.StandardOutput.ReadToEnd());
 
-        return process.WaitForExit(5000);
+        return process.WaitForExit(30000);
     }
 
     private void RunTest(int runDelayMilliseconds)
@@ -72,6 +86,7 @@ internal abstract class ConsoleAppIntegrationTestsBase
 
         var finished = RunApp(outWriter, errorWriter, runDelayMilliseconds);
         Assert.That(finished, Is.True);
+        Console.WriteLine("App completed");
 
         var output = outWriter.ToString();
         var errorOutput = errorWriter.ToString();
