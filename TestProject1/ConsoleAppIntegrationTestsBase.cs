@@ -46,7 +46,7 @@ internal abstract class ConsoleAppIntegrationTestsBase
         Console.WriteLine($"Run app with {runDelayMilliseconds} ms delay");
         var process = new Process();
         process.StartInfo.FileName = "dotnet";
-        process.StartInfo.Arguments = $"ConsoleApp1.dll -- {runDelayMilliseconds}";
+        process.StartInfo.Arguments = $"ConsoleApp1.dll {runDelayMilliseconds}";
         process.StartInfo.CreateNoWindow = true;
         process.StartInfo.UseShellExecute = false;
         process.StartInfo.RedirectStandardOutput = true;
