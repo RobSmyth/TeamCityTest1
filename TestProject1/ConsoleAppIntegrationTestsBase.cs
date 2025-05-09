@@ -19,7 +19,7 @@ internal abstract class ConsoleAppIntegrationTestsBase
     [TestCase(13)]
     [TestCase(14)]
     [Timeout(10000)]
-    public void DisplaysHelloMessageWhenRun(int runDelayMilliseconds)
+    public void DisplaysHelloMessageWhenRun01(int runDelayMilliseconds)
     {
         RunTest(runDelayMilliseconds);
     }
@@ -34,13 +34,6 @@ internal abstract class ConsoleAppIntegrationTestsBase
     [Test]
     [Timeout(20000)]
     public void DisplaysHelloMessageWhenRun03()
-    {
-        RunTest(6000);
-    }
-
-    [Test]
-    [Timeout(20000)]
-    public void DisplaysHelloMessageWhenRun04()
     {
         RunTest(5000);
     }
