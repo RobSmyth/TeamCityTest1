@@ -91,7 +91,7 @@ internal abstract class ConsoleAppIntegrationTestsBase
         var output = outWriter.ToString();
         var errorOutput = errorWriter.ToString();
 
-        Assert.That(output, Is.EqualTo($"Hello, World!{Environment.NewLine}"));
+        Assert.That(output, Is.EqualTo($"Hello, World!{Environment.NewLine}My test app{Environment.NewLine}"));
         Assert.That(errorOutput, Is.Empty);
     }
 }
