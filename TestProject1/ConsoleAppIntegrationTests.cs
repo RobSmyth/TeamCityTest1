@@ -22,7 +22,18 @@ namespace OrganisationName.ProductName.ComponentName.TestProject1
         [TestCase(9)]
         [TestCase(10)]
         [TestCase(11)]
+        [TestCase(12)]
+        [TestCase(13)]
+        [TestCase(14)]
         public void DisplaysHelloMessageWhenRun(int arbitraryValue)
+        {
+            var finished = RunApp();
+
+            Assert.That(finished, Is.True);
+        }
+
+        [Test]
+        public void DisplaysHelloMessageWhenRun02()
         {
             var finished = RunApp();
 
