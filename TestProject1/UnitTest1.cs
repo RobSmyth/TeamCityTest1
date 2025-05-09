@@ -1,6 +1,6 @@
 namespace OrganisationName.ProductName.ComponentName.TestProject1
 {
-    public class Tests
+    public class TokenUnitTests
     {
         [SetUp]
         public void Setup()
