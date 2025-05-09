@@ -7,11 +7,22 @@ using System.Threading.Tasks;
 
 namespace OrganisationName.ProductName.ComponentName.TestProject1
 {
+    [Parallelizable]
     [TestFixture]
     internal class ConsoleAppIntegrationTests
     {
-        [Test]
-        public void DisplaysHelloMessageWhenRun()
+        [TestCase(1)]
+        [TestCase(2)]
+        [TestCase(3)]
+        [TestCase(4)]
+        [TestCase(5)]
+        [TestCase(6)]
+        [TestCase(7)]
+        [TestCase(8)]
+        [TestCase(9)]
+        [TestCase(10)]
+        [TestCase(11)]
+        public void DisplaysHelloMessageWhenRun(int arbitraryValue)
         {
             var finished = RunApp();
 
